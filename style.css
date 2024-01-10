@@ -1,0 +1,132 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding-top: 20px;
+  color: #000;
+  background-color: #999;
+}
+
+.modal-new-job {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  translate: -50%;
+  display: none;
+  min-width: 400px;
+  max-width: 1000px;
+  background-color: #fff;
+}
+.modal-new-job--visible {
+  display: block;
+}
+.modal-new-job__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 10px;
+  background-color: #ccc;
+}
+.modal-new-job__title {
+  font-weight: 700;
+}
+.modal-new-job__body {
+  padding: 30px 10px;
+}
+
+.button {
+  cursor: pointer;
+}
+.button--close {
+  font-size: 24px;
+}
+.button--new-job {
+  display: block;
+  margin: 0 auto 0;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0a0;
+  color: #fff;
+}
+
+.snake {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+.snake--invisible {
+  display: none;
+}
+
+.segment {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #3498db;
+  position: absolute;
+  -webkit-animation: rotateSnake 3s linear infinite;
+          animation: rotateSnake 3s linear infinite;
+}
+
+@-webkit-keyframes rotateSnake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateSnake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.form-new-job {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
