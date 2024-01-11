@@ -4,25 +4,525 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="index.js" defer></script>
   </head>
   <body>
-    <div class="modal-new-job">
-      <div class="modal-new-job__head">
-        <div class="modal-new-job__title">NEW Create a job</div>
-        <div class="button button--close">&times;</div>
+    <div class="fe-root-layout">
+      <div class="modal-wrapper">
+        <div class="modal-new-job">
+          <div class="modal-new-job__head">
+            <div class="modal-new-job__title">NEW Create a job</div>
+            <div class="button button--close">&times;</div>
+          </div>
+
+          <div class="modal-new-job__body">
+            <div class="snake snake--gorizontal-center"></div>
+
+            <form class="form-new-job" action="#" method="POST">
+              <div class="form-new-job__item">
+                <h2 class="form-new-job__title">Client details</h2>
+                <div class="form-new-job__double-field-wrap">
+                  <input
+                    type="text"
+                    name="first-name"
+                    placeholder="First name"
+                  />
+                  <input type="text" name="last-name" placeholder="Last name" />
+                </div>
+                <input type="tel" name="phone" placeholder="Phone" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email (optional)"
+                />
+              </div>
+
+              <div class="form-new-job__item">
+                <h2 class="form-new-job__title">Job details</h2>
+                <select name="job-type">
+                  <option value="1">Job Type</option>
+                </select>
+                <select name="job-source">
+                  <option value="1">Job source</option>
+                </select>
+                <textarea
+                  name="job-description"
+                  rows="5"
+                  placeholder="Job description (optional)"
+                ></textarea>
+              </div>
+
+              <div class="form-new-job__item">
+                <h2 class="form-new-job__title">Service location</h2>
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  required
+                />
+                <input type="text" name="city" placeholder="City" />
+                <input type="text" name="state" placeholder="State" />
+                <input type="text" name="zip-code" placeholder="Zip code" />
+              </div>
+
+              <div class="form-new-job__item">
+                <h2 class="form-new-job__title">Scheduled</h2>
+                <input type="date" name="start-date" />
+                <div class="form-new-job__double-field-wrap">
+                  <input type="time" name="start-time" />
+                  <input type="time" name="end-time" />
+                </div>
+              </div>
+
+              <button type="submit" class="button form-new-job__button">
+                Create job
+              </button>
+              <button
+                class="button form-new-job__button form-new-job__button--grey"
+              >
+                Save info
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
 
-      <div class="modal-new-job__body">
-        <div class="snake">
-          <div class="segment"></div>
-          <div class="segment"></div>
-          <div class="segment"></div>
+      <nav class="fe-root-layout__nav">
+        <ul role="menu" class="fe-root-side-menu">
+          <li role="menuitem" class="fe-root-side-menu-logo">
+            <a
+              data-source="fe-root"
+              class="fe-root-side-menu-logo__link"
+              href="/pipeline"
+              aria-label="home"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M20.05 9.61c0 3.93-2.53 6.62-6.15 6.62-1.73 0-3.15-.71-3.68-1.6l.03.91v5.63h-3.7V6.62c0-.2-.05-.25-.28-.25H5v-3.1h3.1c1.41 0 1.77 1.23 1.87 1.76.56-.94 2.02-2.03 4.1-2.03 3.58 0 5.98 2.66 5.98 6.61Zm-3.77.03c0-2.1-1.37-3.55-3.1-3.55-1.41 0-3.01.94-3.01 3.58 0 1.72.96 3.52 2.96 3.52 1.48 0 3.15-1.07 3.15-3.55Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/leads/inbox"
+              aria-label="Leads"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M12 16c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4Z"
+                ></path>
+                <path
+                  d="M11.25 2.53c-4.65.36-8.36 4.07-8.72 8.72H1c-.41 0-.75.34-.75.75s.34.75.75.75h1.53c.36 4.65 4.07 8.36 8.72 8.72V23c0 .41.34.75.75.75s.75-.34.75-.75v-1.53c4.65-.36 8.36-4.07 8.72-8.72H23c.41 0 .75-.34.75-.75s-.34-.75-.75-.75h-1.53c-.36-4.65-4.07-8.36-8.72-8.72V1c0-.41-.34-.75-.75-.75s-.75.34-.75.75v1.53ZM20 12c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8 8 3.58 8 8Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li
+            role="menuitem"
+            class="fe-root-menu-item fe-root-menu-item--active"
+          >
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/pipeline"
+              aria-label="Deals"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm-.72 16v-1.04c-.67-.1-1.2-.32-1.6-.58-.5-.33-.77-.71-.92-.94-.22-.35-.1-.82.24-1.03.35-.22.82-.12 1.04.24.07.12.2.3.47.48.25.16.68.34 1.37.38h.13c1.23-.04 1.84-.77 1.84-1.39 0-.2-.04-.32-.1-.42-.06-.12-.17-.25-.4-.43-.36-.28-.63-.36-1.22-.55l-.28-.1-.37-.1-.1-.02c-.17-.04-.38-.1-.6-.19-.25-.1-.51-.23-.7-.34-.13-.07-.26-.15-.38-.24-.33-.25-.6-.54-.79-.9-.19-.37-.26-.75-.26-1.15 0-1.46 1.18-2.49 2.6-2.8V6c0-.41.34-.75.75-.75s.75.34.75.75v.85c.66.1 1.17.31 1.57.57.5.33.77.72.92.94.22.35.1.82-.24 1.04-.35.22-.82.1-1.04-.24-.07-.12-.2-.31-.47-.48-.25-.17-.68-.35-1.37-.39H12c-1.22.05-1.86.8-1.86 1.39 0 .22.04.35.1.46.05.1.15.23.34.39l.04.03.2.1c.16.1.34.2.5.26.13.05.26.09.43.13l.08.02.47.13.27.08c.58.19 1.11.36 1.7.81.31.25.59.52.79.87.2.36.28.75.28 1.16 0 1.45-1.15 2.5-2.57 2.8V18c0 .41-.34.75-.75.75-.42 0-.75-.34-.75-.75Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/projects"
+              aria-label="Projects"
+              ><div
+                class="cui5-baby-pill cui5-baby-pill--variant-info fe-root-ui-components__new"
+              ></div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M8 3c0-.55.45-1 1-1h6c.55 0 1 .45 1 1h2.5c1.1 0 2 .9 2 2v15c0 1.1-.9 2-2 2h-13c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2H8Zm0 2v-.5H5.5c-.28 0-.5.22-.5.5v15c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5V5c0-.28-.22-.5-.5-.5H16V5c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1Zm1.4 7.72c-.28-.3-.76-.3-1.05 0-.3.3-.3.77 0 1.06l2.12 2.12c.14.14.33.22.53.22s.39-.08.53-.22l4.95-4.95c.3-.3.3-.77 0-1.06-.3-.3-.77-.3-1.06 0L11 14.31l-1.6-1.59Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/marketing/campaigns"
+              aria-label="Campaigns"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M9.1 9.07c4.14-1.45 6.71-3.4 8.23-4.93.39 1.37.84 3.34 1.18 5.92.34 2.57.41 4.59.39 6.01-1.85-1.08-4.8-2.28-9.1-2.62l-.7-4.38Zm-.55 5.81c5.57.22 8.87 1.93 10.46 3.05.51.36 1.3.08 1.34-.54.1-1.47.11-4-.35-7.53-.47-3.53-1.14-5.97-1.61-7.37-.2-.59-1.03-.65-1.43-.17-1.25 1.5-4 4-9.32 5.65l-.97.29c-.9.25-1.88.47-2.93.66-1.09.2-1.87 1.2-1.72 2.3l.26 1.98c.14 1.1 1.15 1.86 2.25 1.77 1.07-.08 2.07-.12 3.01-.11l1.01.02Zm14.42-5.41c.18 1.32-.54 2.56-1.68 3.1-.07-.86-.16-1.81-.3-2.84-.14-1.03-.29-1.97-.45-2.82 1.25.22 2.26 1.23 2.43 2.56ZM7.5 20.57 5.76 16.4c.6-.03 1.2-.05 1.76-.04l.99.02.5.02 1.25 3.03c.32.76-.05 1.64-.81 1.96-.77.31-1.65-.05-1.96-.82Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/mail"
+              aria-label="Sales Inbox"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M6.42 8.38c-.35-.23-.81-.14-1.04.2-.23.35-.14.81.2 1.04l5.73 3.82c.42.28.96.28 1.38 0l5.73-3.82c.34-.23.43-.7.2-1.04-.23-.34-.7-.43-1.04-.2l-5.3 3.53c-.17.12-.39.12-.56 0l-5.3-3.53Z"
+                ></path>
+                <path
+                  d="M2 7c0-1.66 1.34-3 3-3h14c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H5c-1.66 0-3-1.34-3-3V7Zm3-1.5c-.83 0-1.5.67-1.5 1.5v10c0 .83.67 1.5 1.5 1.5h14c.83 0 1.5-.67 1.5-1.5V7c0-.83-.67-1.5-1.5-1.5H5Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/activities/list"
+              aria-label="Activities"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M7.5 1c.41 0 .75.34.75.75V3h7.5V1.75c0-.41.34-.75.75-.75s.75.34.75.75V3h.5C19.55 3 21 4.46 21 6.25v11.5c0 1.8-1.46 3.25-3.25 3.25H6.25C4.45 21 3 19.54 3 17.75V6.25C3 4.45 4.46 3 6.25 3h.5V1.75c0-.41.34-.75.75-.75ZM6.25 4.5c-.97 0-1.75.78-1.75 1.75V7.5h15V6.25c0-.97-.78-1.75-1.75-1.75H6.25ZM4.5 17.75c0 .97.78 1.75 1.75 1.75h11.5c.97 0 1.75-.78 1.75-1.75V9h-15v8.75ZM14 13c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1h-3Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/persons/list"
+              aria-label="Contacts"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M6.5 13.5c1.07 0 1.94-.88 1.94-1.96S7.57 9.6 6.5 9.6c-1.07 0-1.94.87-1.94 1.95s.87 1.96 1.94 1.96Zm0 1.48c-2.02 0-3.31 1.34-3.5 3.08-.02.24.18.44.42.44h6.16c.24 0 .44-.2.42-.44-.19-1.74-1.48-3.08-3.5-3.08ZM11.75 12c-.41 0-.75.34-.75.75s.34.75.75.75h5.5c.41 0 .75-.34.75-.75s-.34-.75-.75-.75h-5.5ZM11 15.75c0-.41.34-.75.75-.75h3.5c.41 0 .75.34.75.75s-.34.75-.75.75h-3.5c-.41 0-.75-.34-.75-.75Z"
+                ></path>
+                <path
+                  d="M5.75 2.5C4.23 2.5 3 3.73 3 5.25V6.5c-1.66 0-3 1.26-3 2.81v9.38c0 1.55 1.34 2.81 3 2.81h15c1.66 0 3-1.26 3-2.81V17.5h.25c1.52 0 2.75-1.23 2.75-2.75v-9.5c0-1.52-1.23-2.75-2.75-2.75H5.75ZM21 16V9.31c0-1.55-1.34-2.81-3-2.81H4.5V5.25C4.5 4.56 5.06 4 5.75 4h15.5c.69 0 1.25.56 1.25 1.25v9.5c0 .69-.56 1.25-1.25 1.25H21ZM1.5 18.69V9.3c0-.77.67-1.4 1.5-1.4h15c.83 0 1.5.63 1.5 1.4v9.38c0 .77-.67 1.4-1.5 1.4H3c-.83 0-1.5-.63-1.5-1.4Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/progress/insights"
+              aria-label="Insights"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M2.75 3c-.41 0-.75.34-.75.75 0 4.09-.02 11.18 0 15.27 0 1.1.9 1.98 2 1.98h17.25c.41 0 .75-.34.75-.75s-.34-.75-.75-.75H4c-.28 0-.5-.22-.5-.5v-.52L8 13.06 10.59 15c.3.25.76.22 1.03-.07l4.63-5.02V12c0 .41.34.75.75.75s.75-.34.75-.75V8c0-.41-.34-.75-.75-.75h-4c-.41 0-.75.34-.75.75s.34.75.75.75h2.29L11 13.4l-2.52-1.98c-.32-.26-.8-.22-1.06.1l-3.92 4.7V3.76c0-.41-.34-.75-.75-.75Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/products"
+              aria-label="Products"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M10.62 1.16c.85-.5 1.9-.5 2.76 0L21 5.57c.62.36 1 1.02 1 1.73v8.84c0 .98-.52 1.89-1.37 2.38L13 22.94c-.62.36-1.38.36-2 0l-7.63-4.42C2.52 18.03 2 17.12 2 16.14V7.3c0-.7.38-1.37 1-1.73l7.62-4.41Zm2 1.3c-.38-.23-.86-.23-1.25 0L8.87 3.9l7.76 4.49 3.12-1.82-7.12-4.12Zm7.88 5.43-7.75 4.48v8.98l7.13-4.13c.38-.22.62-.63.62-1.08V7.9Zm-9.25 13.46v-8.98L3.5 7.9v8.25c0 .45.24.86.62 1.08l7.13 4.13Zm-7-14.77 7.75 4.5 3.13-1.82-7.76-4.49-3.12 1.81Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li role="menuitem" class="fe-root-menu-item">
+            <a
+              data-source="fe-root"
+              class="fe-root-menu-item__link"
+              href="/app-catalog"
+              aria-label="Marketplace"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M21.94 10.9c-.08.38-.27.85-.68 1.23l-.25.2v5.92c0 1.52-1.23 2.75-2.75 2.75H5.76C4.22 21 3 19.77 3 18.25v-5.91c-.1-.06-.18-.13-.26-.2-.41-.39-.6-.86-.68-1.24-.16-.68.03-1.35.16-1.8l1.35-4.82c.2-.76.9-1.28 1.68-1.28h13.5c.78 0 1.47.52 1.68 1.28l1.35 4.81c.13.46.32 1.13.16 1.82Zm-1.6-1.4-1.35-4.82c-.03-.1-.13-.18-.24-.18h-1.9l.9 5.38c.06.33.18.47.41.74.28.34.68.63 1.35.63.43 0 .63-.12.73-.22.11-.1.2-.26.24-.46.02-.11.03-.26 0-.45-.03-.2-.08-.39-.14-.62Zm-4.36.96c.18-.22.26-.51.21-.8l-.86-5.16h-2.57V10c0 .25.24.43.4.62.27.34.68.63 1.34.63s1.07-.3 1.34-.63l.14-.16ZM11.26 10V4.5H8.68l-.86 5.18c-.05.28.03.57.21.8l.13.14c.27.34.68.63 1.34.63s1.07-.3 1.34-.63c.15-.18.42-.38.42-.62Zm-5.42.62c.22-.27.37-.42.42-.74l.9-5.38h-1.9c-.12 0-.22.07-.25.18L3.66 9.5c-.06.23-.11.42-.14.62-.03.19-.02.34 0 .45.05.2.13.36.24.46.1.1.3.22.73.22.67 0 1.07-.3 1.35-.63Zm13.67 2.13c-.6 0-1.1-.14-1.52-.36-.41-.22-.74-.51-.99-.81-.24.3-.57.6-.98.81-.42.22-.92.36-1.52.36s-1.1-.14-1.51-.36c-.42-.22-.74-.51-.99-.81-.25.3-.57.6-.99.81-.41.22-.91.36-1.51.36s-1.1-.14-1.52-.36c-.41-.22-.74-.51-.98-.81-.25.3-.58.6-1 .81-.4.22-.9.36-1.5.36v5.5c0 .69.56 1.25 1.25 1.25h12.51c.7 0 1.25-.56 1.25-1.25v-5.5Z"
+                ></path></svg
+            ></a>
+          </li>
+          <li
+            role="menuitem"
+            class="fe-root-side-menu-more fe-root-side-menu__last-item"
+            data-testid="more-menu-toggle"
+          >
+            <button class="fe-root-side-menu-more__button" aria-label="More">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                class="cui5-icon cui5-icon--color-undefined undefined"
+              >
+                <path
+                  d="M3.5 12c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1ZM2 12c0 1.38 1.12 2.5 2.5 2.5S7 13.38 7 12 5.88 9.5 4.5 9.5 2 10.62 2 12Zm9 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1Zm-1.5 0c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5-2.5 1.12-2.5 2.5ZM22 12c0 .85-.42 1.6-1.07 2.05-.4.28-.9.45-1.43.45-.53 0-1.03-.17-1.43-.45C17.42 13.6 17 12.85 17 12c0-1.38 1.12-2.5 2.5-2.5S22 10.62 22 12Zm-2.5 1c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1Z"
+                ></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div class="fe-root-layout__content">
+        <header class="fe-root-header">
+          <div class="fe-root-header__left">
+            <div class="fe-root-Breadcrumbs">
+              <h1 class="fe-root-Breadcrumbs__view-name">Deals</h1>
+            </div>
+          </div>
+          <div class="fe-root-header__center">
+            <div>
+              <div class="src-components-style__wrapper--oPZhA">
+                <div>
+                  <div
+                    class="cui5-input cui5-input--spinner-left src-components-Input-style__inputBoxContainer--THlJ6"
+                  >
+                    <div
+                      id="froot-global-search"
+                      class="cui5-input__box src-components-Input-style__globalSearchInputWrapper--wXtEZ"
+                    >
+                      <input
+                        class="src-components-Input-style__searchInput--FEY7Y"
+                        placeholder="Search Pipedrive"
+                        value=""
+                      /><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        color="secondary"
+                        class="cui5-icon cui5-icon--color-secondary cui5-input__icon"
+                      >
+                        <path
+                          d="M17.5 10.5c0-3.87-3.13-7-7-7s-7 3.13-7 7 3.13 7 7 7 7-3.13 7-7Zm-1.54 6.52C14.48 18.25 12.58 19 10.5 19 5.8 19 2 15.2 2 10.5S5.8 2 10.5 2 19 5.8 19 10.5c0 2.08-.75 3.98-1.98 5.46l4.76 4.76c.3.3.3.77 0 1.06-.3.3-.77.3-1.06 0l-4.76-4.76Z"
+                        ></path>
+                      </svg>
+                      <div
+                        class="cui5-spinner cui5-spinner--size-s cui5-spinner--variant-secondary src-components-Input-style__searchSpinner--vNL3M"
+                        id="search-spinner"
+                      >
+                        <div class="cui5-spinner__trail"></div>
+                      </div>
+                    </div>
+                    <button
+                      class="cui5-button cui5-button--variant-ghost-alternative cui5-button--size-s src-components-Input-style__clearButton--WsjZk src-components-Input-style__visibilityHidden--iaL8O"
+                      tabindex="-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        class="cui5-icon cui5-icon--color-undefined undefined"
+                      >
+                        <path
+                          d="M6.7 5.3c-.38-.4-1.02-.4-1.4 0-.4.38-.4 1.02 0 1.4l5.29 5.3-5.3 5.3c-.39.38-.39 1.02 0 1.4.4.4 1.03.4 1.42 0L12 13.42l5.3 5.3c.38.39 1.02.39 1.4 0 .4-.4.4-1.03 0-1.42L13.42 12l5.3-5.3c.39-.38.39-1.02 0-1.4-.4-.4-1.03-.4-1.42 0L12 10.58l-5.3-5.3Z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fe-root-quick-add-menu__wrapper">
+              <div data-testid="quick-add-anchor">
+                <button aria-label="Quick add" class="fe-root-quick-add-anchor">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    color="primary"
+                    class="cui5-icon cui5-icon--color-primary fe-root-quick-add-anchor__plus"
+                    style="transform: rotate(0deg)"
+                  >
+                    <path
+                      d="M12 5c.41 0 .75.34.75.75v5.5h5.5c.41 0 .75.34.75.75s-.34.75-.75.75h-5.5v5.5c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-5.5h-5.5c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h5.5v-5.5c0-.41.34-.75.75-.75Z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="fe-root-header__right">
+            <div>
+              <div class="AppExtensions__navigation__lRV">
+                <ol
+                  class="AppExtensions__items__qQL"
+                  data-testid="Dock-Options"
+                >
+                  <li
+                    class="AppExtensions__item__gKo"
+                    data-testid="Dock-Dropmenu"
+                  >
+                    <div
+                      class="cui5-spacing cui5-spacing--top-none cui5-spacing--right-none cui5-spacing--bottom-none cui5-spacing--left-none"
+                    >
+                      <button
+                        class="cui5-button cui5-button--variant-ghost-alternative AppExtensions__button__IzV"
+                        data-testid="Dock-Dropmenu-Icon"
+                      >
+                        <svg
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M16.452 9.591a2.47 2.47 0 0 0-1.315.377.457.457 0 0 1-.471.008.48.48 0 0 1-.238-.417V6.45a.865.865 0 0 0-.86-.863H10.85a.465.465 0 0 1-.402-.235.488.488 0 0 1-.007-.474c.203-.375.318-.807.318-1.266C10.76 2.17 9.62 1 8.211 1 6.804 1 5.664 2.17 5.664 3.612c0 .458.115.89.318 1.265a.488.488 0 0 1-.007.475.465.465 0 0 1-.402.234H1.855A.861.861 0 0 0 1 6.45v3.033a.48.48 0 0 0 .228.41c.14.087.316.09.46.01.36-.199.772-.312 1.21-.312 1.407 0 2.548 1.169 2.548 2.61 0 1.442-1.14 2.611-2.548 2.61-.438 0-.85-.112-1.21-.312a.457.457 0 0 0-.46.01.48.48 0 0 0-.228.411v3.213c0 .479.388.867.855.867h11.713c.467 0 .86-.388.86-.867v-3.29a.48.48 0 0 1 .238-.416.457.457 0 0 1 .471.008c.383.24.832.377 1.315.377 1.408 0 2.548-1.168 2.548-2.61s-1.14-2.611-2.548-2.61Z"
+                            stroke-width="1.5"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <div>
+              <div class="fe-root-header-button__container">
+                <button
+                  role="button"
+                  class="fe-root-header-button__button"
+                  title="quick-help"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    class="cui5-icon cui5-icon--color-undefined undefined"
+                  >
+                    <path
+                      d="M12 7.25c-1.3 0-2.25.96-2.25 2 0 .42-.34.76-.75.76s-.75-.34-.75-.75c0-2 1.74-3.51 3.75-3.51s3.75 1.51 3.75 3.5c0 1.4-1 2.48-2.11 3.04-.59.3-.89.72-.89 1.08v1.13c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-1.13c0-1.2.92-2.02 1.71-2.42.82-.4 1.29-1.07 1.29-1.7 0-1.04-.95-2-2.25-2Zm0 9.25c.41 0 .75.34.75.75v.5c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-.5c0-.41.34-.75.75-.75Z"
+                    ></path>
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM3.46 12c0-4.71 3.83-8.54 8.54-8.54 4.71 0 8.54 3.83 8.54 8.54 0 4.71-3.83 8.54-8.54 8.54-4.71 0-8.54-3.83-8.54-8.54Z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div>
+              <div data-test="sales-assistant">
+                <button
+                  data-test="sales-assistant-lightbulb--default"
+                  aria-label="Sales Assistant"
+                  tabindex="0"
+                  class="styled__HeaderIcon-sc-1seh3b1-0 fMWQdi"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    color="secondary"
+                    class="cui5-icon cui5-icon--color-secondary undefined"
+                  >
+                    <path
+                      d="M10 8.95c.41 0 .75.34.75.75 0 .69.56 1.25 1.25 1.25s1.25-.56 1.25-1.25c0-.41.34-.75.75-.75s.75.34.75.75c0 1.26-.85 2.32-2 2.65v3.35c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-3.35c-1.15-.33-2-1.4-2-2.65 0-.41.34-.75.75-.75Z"
+                    ></path>
+                    <path
+                      d="M4.75 9.14C4.75 5.28 8 2 12 2s7.25 3.28 7.25 7.14c0 1.65-.6 3.11-1.58 4.27-.57.66-.92 1.35-.92 2.04v1.28c0 .78-.4 1.47-1 1.87v1.15c0 1.24-1 2.25-2.25 2.25h-3c-1.24 0-2.25-1-2.25-2.25V18.6c-.6-.4-1-1.09-1-1.87v-1.28c0-.69-.35-1.38-.92-2.04-.98-1.16-1.58-2.62-1.58-4.27ZM12 3.5c-3.18 0-5.75 2.62-5.75 5.64 0 1.27.45 2.4 1.23 3.3.66.78 1.27 1.81 1.27 3.01v1.28c0 .42.34.75.75.75h5c.41 0 .75-.33.75-.75v-1.28c0-1.2.61-2.23 1.27-3.01.78-.9 1.23-2.03 1.23-3.3 0-3.02-2.57-5.64-5.75-5.64ZM9.75 19.75c0 .41.34.75.75.75h3c.41 0 .75-.34.75-.75v-.77h-4.5v.77Z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <button
+              class="fe-root-avatar-menu-button"
+              data-testid="avatar-menu-btn"
+              data-test="account-menu-button"
+            >
+              <div class="fe-root-avatar-menu-button__initials">P</div>
+            </button>
+          </div>
+        </header>
+        <div
+          id="main-content"
+          class="fe-root-layout__main-area"
+          data-neat="main-area"
+        >
+          <main class="fe-root-layout__main">
+            <div style="height: 145px; border: 1px solid #000"></div>
+
+            <div class="details-layout-main">
+              <ul class="sidebar">
+                <li class="sidebar__item">test</li>
+                <li class="sidebar__item">
+                  <button class="button button--new-job">
+                    NEW Create a job
+                  </button>
+                </li>
+                <li class="sidebar__item">details</li>
+              </ul>
+            </div>
+          </main>
         </div>
       </div>
     </div>
-
-    <button class="button button--new-job">NEW Create a job</button>
   </body>
 </html>
