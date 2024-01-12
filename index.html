@@ -34,12 +34,14 @@
                     name="first-name"
                     placeholder="First name"
                     class="form-new-job__field"
+                    data-fieldid="1"
                   />
                   <input
                     type="text"
                     name="last-name"
                     placeholder="Last name"
                     class="form-new-job__field"
+                    data-fieldid="2"
                   />
                 </div>
                 <input
@@ -47,28 +49,42 @@
                   name="phone"
                   placeholder="Phone"
                   class="form-new-job__field"
+                  data-fieldid="3"
                 />
                 <input
                   type="email"
                   name="email"
                   placeholder="Email (optional)"
                   class="form-new-job__field"
+                  data-fieldid="4"
                 />
               </div>
 
               <div class="form-new-job__item">
                 <h2 class="form-new-job__title">Job details</h2>
-                <select name="job-type" class="form-new-job__field">
-                  <option value="1">Job Type</option>
+                <select
+                  value="0"
+                  name="job-type"
+                  class="form-new-job__field"
+                  data-fieldid="5"
+                >
+                  <option value="0">Select job Type</option>
+                  <option value="1">1</option>
                 </select>
-                <select name="job-source" class="form-new-job__field">
-                  <option value="1">Job source</option>
+                <select
+                  name="job-source"
+                  class="form-new-job__field"
+                  data-fieldid="6"
+                >
+                  <option value="0">Job source</option>
+                  <option value="1">1</option>
                 </select>
                 <textarea
                   name="job-description"
                   rows="5"
                   placeholder="Job description (optional)"
                   class="form-new-job__field"
+                  data-fieldid="7"
                 ></textarea>
               </div>
 
@@ -80,24 +96,28 @@
                   placeholder="Address"
                   required
                   class="form-new-job__field"
+                  data-fieldid="8"
                 />
                 <input
                   type="text"
                   name="city"
                   placeholder="City"
                   class="form-new-job__field"
+                  data-fieldid="9"
                 />
                 <input
                   type="text"
                   name="state"
                   placeholder="State"
                   class="form-new-job__field"
+                  data-fieldid="10"
                 />
                 <input
                   type="text"
                   name="zip-code"
                   placeholder="Zip code"
                   class="form-new-job__field"
+                  data-fieldid="11"
                 />
               </div>
 
@@ -107,17 +127,20 @@
                   type="date"
                   name="start-date"
                   class="form-new-job__field"
+                  data-fieldid="12"
                 />
                 <div class="form-new-job__double-field-wrap">
                   <input
                     type="time"
                     name="start-time"
                     class="form-new-job__field"
+                    data-fieldid="13"
                   />
                   <input
                     type="time"
                     name="end-time"
                     class="form-new-job__field"
+                    data-fieldid="14"
                   />
                 </div>
               </div>
@@ -565,10 +588,8 @@
                   </button>
                 </li>
                 <li id="details" class="sidebar__item">
-                  <p>details</p>
-                  <!-- <div>
-                    First name -
-                  </div> -->
+                  <p>Details</p>
+                  <div></div>
                 </li>
               </ul>
             </div>

@@ -8,8 +8,82 @@ const submitButton = modalWrapper.querySelector('button[type="submit"]');
 const modalNewJobBodyTextCreated = modalNewJob.querySelector(
   '.modal-new-job__body p'
 );
+const fields = modalWrapper.querySelectorAll('.form-new-job__field');
 
 const defaultTextSubmitButton = 'Create job';
+
+const detailsItems = [
+  {
+    id: 1,
+    key: 'First name',
+    value: '-',
+  },
+  {
+    id: 2,
+    key: 'Last name',
+    value: '-',
+  },
+  {
+    id: 3,
+    key: 'Phone',
+    value: '-',
+  },
+  {
+    id: 4,
+    key: 'Email',
+    value: '-',
+  },
+  {
+    id: 5,
+    key: 'Job type',
+    value: '-',
+  },
+  {
+    id: 6,
+    key: 'Job source',
+    value: '-',
+  },
+  {
+    id: 7,
+    key: 'Job description',
+    value: '-',
+  },
+  {
+    id: 8,
+    key: 'Address',
+    value: '-',
+  },
+  {
+    id: 9,
+    key: 'City',
+    value: '-',
+  },
+  {
+    id: 10,
+    key: 'State',
+    value: '-',
+  },
+  {
+    id: 11,
+    key: 'Zip code',
+    value: '-',
+  },
+  {
+    id: 12,
+    key: 'Start date',
+    value: '-',
+  },
+  {
+    id: 13,
+    key: 'Start time',
+    value: '-',
+  },
+  {
+    id: 14,
+    key: 'End time',
+    value: '-',
+  },
+];
 
 function toggleModal() {
   modalWrapper.classList.toggle('modal-wrapper--visible');
@@ -18,6 +92,7 @@ function toggleModal() {
 function resetFormOfModal() {
   formNewJob.classList.remove('form-new-job--visible');
   submitButton.innerText = defaultTextSubmitButton;
+  submitButton.classList.remove('form-new-job__button--red');
 }
 
 function resetModal() {
@@ -38,6 +113,18 @@ function closeModal() {
   resetModal();
 }
 
+function setDetailsList() {
+  const detailsList = document.querySelector('#details div');
+
+  detailsList.innerHTML = `
+    ${detailsItems
+      .map(
+        ({ key, value }) => `<div class='details__item'>${key} ${value}</div>`
+      )
+      .join('')}
+  `;
+}
+
 document.querySelector('.button--new-job').addEventListener('click', () => {
   toggleModal();
 
@@ -52,6 +139,7 @@ modalNewJob.addEventListener('click', (event) => {
 });
 
 modalWrapper.addEventListener('click', closeModal);
+
 modalWrapper
   .querySelector('.button--close')
   .addEventListener('click', closeModal);
@@ -70,7 +158,6 @@ modalWrapper
     submitButton.classList.add('form-new-job__button--red');
 
     const data = {};
-    const fields = modalWrapper.querySelectorAll('.form-new-job__field');
 
     fields.forEach(({ name, value }) => {
       data[name] = value;
@@ -98,8 +185,14 @@ modalWrapper
         'modal-new-job__body-text-created--visible'
       );
 
+      setDetailsList();
+
       fields.forEach((field) => {
-        field.value = '';
+        if (field.tagName === 'SELECT') {
+          field.value = '0';
+        } else {
+          field.value = '';
+        }
       });
     }
   });
@@ -110,9 +203,18 @@ modalNewJobBodyTextCreated.addEventListener('click', () => {
   }, 100);
 });
 
-// const detailsInfo = [
-//   {
-//     key: 'First name',
-//     value:
-//   },
-// ];
+setDetailsList();
+
+function changeValueFieldById(event) {
+  detailsItems.find(
+    (item) => item.id === Number(event.target.dataset.fieldid)
+  ).value = event.target.value;
+}
+
+fields.forEach((item) => {
+  if (item.tagName !== 'SELECT') {
+    item.addEventListener('input', changeValueFieldById);
+  } else {
+    item.addEventListener('change', changeValueFieldById);
+  }
+});
