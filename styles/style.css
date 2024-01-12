@@ -71,10 +71,15 @@ ul {
   list-style-type: none;
 }
 
+p {
+  margin: 0;
+}
+
 body {
   margin: 0;
   color: #000;
   background-color: #ccc;
+  overflow: hidden;
 }
 
 .button {
@@ -99,9 +104,12 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(153, 153, 153, 0.6);
+  overflow: auto;
 }
 .modal-wrapper--visible {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .modal-new-job {
@@ -128,6 +136,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-height: 50px;
   padding: 5px 10px;
   background-color: #ccc;
 }
@@ -135,12 +144,21 @@ body {
   font-weight: 700;
 }
 .modal-new-job__body {
-  width: 100%;
   padding: 30px;
+}
+.modal-new-job__body-text-created {
+  display: none;
+}
+.modal-new-job__body-text-created--visible {
+  display: block;
+}
+.modal-new-job__body-text-created span {
+  color: #00f;
 }
 
 .form-new-job {
   display: none;
+  width: 100%;
 }
 .form-new-job--visible {
   display: -webkit-box;
@@ -162,10 +180,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 10px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 280px;
-          flex: 1 0 280px;
   width: calc(50% - 12px);
+  min-width: 280px;
   min-height: 300px;
   padding: 10px;
   border-bottom-left-radius: 10px;
@@ -185,6 +201,21 @@ body {
      -moz-column-gap: 5px;
           column-gap: 5px;
 }
+.form-new-job__field {
+  width: 100%;
+  min-width: 120px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+.form-new-job__field:focus:invalid {
+  border: 1px solid #f00;
+}
+.form-new-job__buttons {
+  width: 100%;
+  text-align: center;
+}
 .form-new-job__button {
   padding: 10px 20px;
   border: none;
@@ -198,14 +229,6 @@ body {
 }
 .form-new-job__button--red {
   background-color: #f00;
-}
-
-input {
-  width: 100%;
-  min-width: 120px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 select {

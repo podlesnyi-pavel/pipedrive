@@ -1,4 +1,4 @@
-@import './styles/blocks/snake.scss';
+@import './blocks/_snake.scss';
 
 * {
   box-sizing: border-box;
@@ -11,10 +11,15 @@ ul {
   list-style-type: none;
 }
 
+p {
+  margin: 0;
+}
+
 body {
   margin: 0;
   color: #000;
   background-color: #ccc;
+  overflow: hidden;
 }
 
 .button {
@@ -41,13 +46,16 @@ body {
   width: 100%;
   height: 100%;
   background-color: #9999;
+  overflow: auto;
 
   &--visible {
-    display: block;
+    display: flex;
   }
 }
 
 .modal-new-job {
+  $heightHead: 50px;
+
   position: absolute;
   top: 5px;
   left: 50%;
@@ -64,6 +72,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: $heightHead;
     padding: 5px 10px;
     background-color: #ccc;
   }
@@ -73,8 +82,19 @@ body {
   }
 
   &__body {
-    width: 100%;
     padding: 30px;
+  }
+
+  &__body-text-created {
+    display: none;
+
+    &--visible {
+      display: block;
+    }
+
+    span {
+      color: #00f;
+    }
   }
 }
 
@@ -82,6 +102,7 @@ body {
   $half-gap: 12px;
 
   display: none;
+  width: 100%;
 
   &--visible {
     display: flex;
@@ -94,8 +115,8 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-    flex: 1 0 280px;
-    width: calc(50% - $half-gap);
+    width: calc(50% - 12px);
+    min-width: 280px;
     min-height: 300px;
     padding: 10px;
     border-bottom-left-radius: 10px;
@@ -111,6 +132,24 @@ body {
   &__double-field-wrap {
     display: flex;
     column-gap: 5px;
+  }
+
+  &__field {
+    width: 100%;
+    min-width: 120px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+
+    &:focus:invalid {
+      border: 1px solid #f00;
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    text-align: center;
   }
 
   &__button {
@@ -129,14 +168,6 @@ body {
       background-color: #f00;
     }
   }
-}
-
-input {
-  width: 100%;
-  min-width: 120px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 select {

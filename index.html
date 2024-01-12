@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./styles/variables.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script src="./index.js" defer></script>
   </head>
   <body>
     <div class="fe-root-layout">
@@ -20,6 +20,10 @@
 
           <div class="modal-new-job__body">
             <div class="snake snake--gorizontal-center"></div>
+            <p class="modal-new-job__body-text-created">
+              Job is create!<a href="#details">View Deal</a>
+              <span>View in Workiz</span>
+            </p>
 
             <form class="form-new-job" action="#" method="POST">
               <div class="form-new-job__item">
@@ -29,29 +33,42 @@
                     type="text"
                     name="first-name"
                     placeholder="First name"
+                    class="form-new-job__field"
                   />
-                  <input type="text" name="last-name" placeholder="Last name" />
+                  <input
+                    type="text"
+                    name="last-name"
+                    placeholder="Last name"
+                    class="form-new-job__field"
+                  />
                 </div>
-                <input type="tel" name="phone" placeholder="Phone" />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone"
+                  class="form-new-job__field"
+                />
                 <input
                   type="email"
                   name="email"
                   placeholder="Email (optional)"
+                  class="form-new-job__field"
                 />
               </div>
 
               <div class="form-new-job__item">
                 <h2 class="form-new-job__title">Job details</h2>
-                <select name="job-type">
+                <select name="job-type" class="form-new-job__field">
                   <option value="1">Job Type</option>
                 </select>
-                <select name="job-source">
+                <select name="job-source" class="form-new-job__field">
                   <option value="1">Job source</option>
                 </select>
                 <textarea
                   name="job-description"
                   rows="5"
                   placeholder="Job description (optional)"
+                  class="form-new-job__field"
                 ></textarea>
               </div>
 
@@ -62,29 +79,59 @@
                   name="address"
                   placeholder="Address"
                   required
+                  class="form-new-job__field"
                 />
-                <input type="text" name="city" placeholder="City" />
-                <input type="text" name="state" placeholder="State" />
-                <input type="text" name="zip-code" placeholder="Zip code" />
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                  class="form-new-job__field"
+                />
+                <input
+                  type="text"
+                  name="state"
+                  placeholder="State"
+                  class="form-new-job__field"
+                />
+                <input
+                  type="text"
+                  name="zip-code"
+                  placeholder="Zip code"
+                  class="form-new-job__field"
+                />
               </div>
 
               <div class="form-new-job__item">
                 <h2 class="form-new-job__title">Scheduled</h2>
-                <input type="date" name="start-date" />
+                <input
+                  type="date"
+                  name="start-date"
+                  class="form-new-job__field"
+                />
                 <div class="form-new-job__double-field-wrap">
-                  <input type="time" name="start-time" />
-                  <input type="time" name="end-time" />
+                  <input
+                    type="time"
+                    name="start-time"
+                    class="form-new-job__field"
+                  />
+                  <input
+                    type="time"
+                    name="end-time"
+                    class="form-new-job__field"
+                  />
                 </div>
               </div>
 
-              <button type="submit" class="button form-new-job__button">
-                Create job
-              </button>
-              <button
-                class="button form-new-job__button form-new-job__button--grey"
-              >
-                Save info
-              </button>
+              <div class="form-new-job__buttons">
+                <button type="submit" class="button form-new-job__button">
+                  Create job
+                </button>
+                <button
+                  class="button form-new-job__button form-new-job__button--grey"
+                >
+                  Save info
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -517,7 +564,12 @@
                     NEW Create a job
                   </button>
                 </li>
-                <li class="sidebar__item">details</li>
+                <li id="details" class="sidebar__item">
+                  <p>details</p>
+                  <!-- <div>
+                    First name -
+                  </div> -->
+                </li>
               </ul>
             </div>
           </main>
