@@ -96,7 +96,6 @@ function resetFormOfModal() {
 }
 
 function resetModal() {
-  modalWrapper.classList.remove('modal-wrapper--visible');
   snake.classList.remove('snake--invisible');
   resetFormOfModal();
   // modalNewJob.attributeStyleMap.clear(); // not support firefox
